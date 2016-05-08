@@ -1,6 +1,6 @@
-FROM    ubuntu:14.04
+FROM ubuntu:14.04
 
-MAINTAINER Pakhomov Egor <pahomov.egor@gmail.com>
+MAINTAINER Dmitry Pranchuk <d.pranchuk@gmail.com>
 
 RUN apt-get -y update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes software-properties-common python-software-properties
@@ -20,8 +20,6 @@ ENV MAVEN_HOME /usr/share/maven
 RUN apt-get -y install git
 RUN apt-get -y install npm
 RUN git clone https://github.com/apache/incubator-zeppelin.git
-RUN cd incubator-zeppelin \
-	git reset --hard 2498e5df12ae8cc1b24375e253df94394710aaf8
 
 ADD warm_maven.sh /usr/local/bin/warm_maven.sh
 ADD scripts/start-script.sh /start-script.sh
